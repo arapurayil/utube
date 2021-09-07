@@ -22,14 +22,16 @@ Watch YouTube Live Streams via a Cloudflare Worker
 
 Your worker route would be something like `yourapp.example.workers.dev`
 
-To play a live stream you've to pass the YouTube url of the video to the worker
+To play a live stream you've to pass the YouTube channel id or the video id to the worker
+For hls streams use `master.m3u8` in the url path
+For dash streams use `master.m3u8` in the url path
 For ex:
 YouTube url : `https://www.youtube.com/channel/UCP0uG-mcMImgKnJz-VjJZmQ/live`
-New worker url: `https://yourapp.example.workers.dev/?url=https://www.youtube.com/channel/UCP0uG-mcMImgKnJz-VjJZmQ/live`
+New worker url: `https://yourapp.example.workers.dev/stream/UCP0uG-mcMImgKnJz-VjJZmQ/master.m3u8`
 
 **Tip**: `https://www.youtube.com/channel/UCP0uG-mcMImgKnJz-VjJZmQ/live` and `https://www.youtube.com/watch?v=jjH6v95z3Nw` are both acceptable urls, but the former is preferable as it is a permanent url.
 
 ### Working demo
-[https://utube.arapurayil.workers.dev/?url=https://www.youtube.com/channel/UCP0uG-mcMImgKnJz-VjJZmQ/live](https://utube.arapurayil.workers.dev/?url=https://www.youtube.com/channel/UCP0uG-mcMImgKnJz-VjJZmQ/live)
+[https://utube.arapurayil.com/stream/UCP0uG-mcMImgKnJz-VjJZmQ/master.m3u8](https://utube.arapurayil.com/stream/UCP0uG-mcMImgKnJz-VjJZmQ/master.m3u8)
 
-Play the above url in VLC media player
+Play the above url in VLC media player or any player supporting hls or dash streams
